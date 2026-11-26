@@ -5,6 +5,8 @@ interface ItemCardProps {
   onIncrease: (id: number) => void;
   onDecrease: (id: number) => void;
   onAddToCheckout: (id: number) => void;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
 function ItemCard({
@@ -12,6 +14,8 @@ function ItemCard({
   onIncrease,
   onDecrease,
   onAddToCheckout,
+  onEdit,
+  onDelete,
 }: ItemCardProps) {
   return (
     <div>
@@ -55,6 +59,11 @@ function ItemCard({
       >
         Add to Checkout
       </button>
+
+      {/* Edit and Delete product */}
+      <button onClick={() => onEdit(item.id)}>Edit</button>
+
+      <button onClick={() => onDelete(item.id)}>Delete</button>
     </div>
   );
 }
